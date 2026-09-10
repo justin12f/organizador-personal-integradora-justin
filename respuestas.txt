@@ -1,0 +1,103 @@
+PRÁCTICA INTEGRADORA: GIT, GITHUB Y ENTORNO DE TRABAJO
+Preguntas individuales (sección 27)
+Autor: Justin Emiliano Rodríguez Franco (justin12f)
+
+------------------------------------------------------------------------
+
+1. ¿Cuál es la diferencia entre un repositorio local y uno remoto?
+
+El repositorio local vive en la computadora del desarrollador: contiene la
+carpeta .git con todo el historial y es donde se hacen los commits sin
+necesidad de conexión. El repositorio remoto está alojado en un servidor
+(por ejemplo GitHub) y sirve como copia compartida y punto de encuentro para
+respaldar el trabajo y colaborar con otras personas. Los cambios pasan del
+local al remoto con push y del remoto al local con fetch/pull.
+
+------------------------------------------------------------------------
+
+2. ¿Cuál es la diferencia entre commit y push?
+
+Un commit registra una versión de los cambios en el historial del
+repositorio LOCAL, con un mensaje que describe qué se hizo. push envía uno o
+varios commits que ya existen en el local hacia el repositorio REMOTO. Es
+decir, commit guarda el punto de control en tu máquina y push lo publica
+para que esté disponible en GitHub.
+
+------------------------------------------------------------------------
+
+3. ¿Para qué sirve .gitignore?
+
+Es un archivo que indica a Git qué archivos y carpetas NO debe rastrear ni
+subir al repositorio. Se usa para excluir cosas que no forman parte del
+código fuente: entornos virtuales (.venv/), archivos compilados
+(__pycache__/, *.pyc), credenciales (.env), configuración local del editor
+(.vscode/) y archivos del sistema (.DS_Store). Así el repositorio queda
+limpio y no se filtra información sensible o innecesaria.
+
+------------------------------------------------------------------------
+
+4. ¿Por qué .venv no se almacena normalmente en GitHub?
+
+Porque el entorno virtual es específico del sistema operativo y de la ruta
+de cada máquina, pesa mucho y se puede regenerar en segundos. En lugar de
+versionar sus miles de archivos, se versiona requirements.txt y cada
+persona recrea su propio .venv con "python -m venv .venv" y
+"pip install -r requirements.txt".
+
+------------------------------------------------------------------------
+
+5. ¿Para qué sirve requirements.txt?
+
+Guarda la lista de dependencias del proyecto con sus versiones exactas
+(se genera con "pip freeze > requirements.txt"). Permite que cualquier
+persona reconstruya el mismo entorno con "pip install -r requirements.txt",
+garantizando que todos trabajen con las mismas bibliotecas.
+
+------------------------------------------------------------------------
+
+6. ¿Cuál es la diferencia entre fork y clone?
+
+Un fork crea una copia del repositorio en TU propia cuenta de GitHub (en el
+servidor); es el punto de partida para colaborar en un proyecto sobre el que
+no tienes permisos de escritura. Un clone descarga un repositorio (el
+original o tu fork) a tu máquina para trabajar localmente. En el flujo de
+colaboración: primero se hace fork en GitHub y luego se clona ese fork.
+
+------------------------------------------------------------------------
+
+7. ¿Por qué conviene crear una rama antes de modificar el proyecto?
+
+Porque aísla el trabajo nuevo de la rama principal (main), que se mantiene
+siempre estable. En la rama se puede experimentar, hacer varios commits y,
+si algo sale mal, descartarla sin afectar el proyecto. Además, cada rama se
+asocia a un Pull Request, lo que facilita la revisión de un conjunto de
+cambios concreto.
+
+------------------------------------------------------------------------
+
+8. ¿Qué función cumple un Pull Request?
+
+Es la solicitud formal para integrar los cambios de una rama (normalmente
+desde un fork) en otra rama del repositorio original. Sirve como espacio de
+revisión: muestra los archivos modificados y las diferencias, permite
+comentar, pedir cambios (Request changes) o aprobar, y deja registro de la
+discusión antes de hacer el merge.
+
+------------------------------------------------------------------------
+
+9. ¿Qué se revisa antes de realizar un merge?
+
+Qué archivos se agregaron o modificaron, las diferencias línea por línea,
+que el cambio haga lo que dice su descripción, que no incluya archivos que
+no deberían estar (por ejemplo .venv o .env), que los mensajes de commit
+sean claros y que no haya conflictos con la rama destino.
+
+------------------------------------------------------------------------
+
+10. ¿Por qué, después del merge en GitHub, se utiliza git pull en el
+    repositorio local?
+
+Porque el merge ocurre en el repositorio REMOTO: la rama main de GitHub
+queda adelante de la copia local. "git pull origin main" trae esos commits
+al repositorio local para que ambos queden sincronizados y el siguiente
+trabajo parta de la versión ya integrada.
