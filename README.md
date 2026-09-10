@@ -44,6 +44,13 @@ Registradas en `requirements.txt` (generado con `pip freeze`):
 - `requests` — peticiones HTTP.
 - `python-dotenv` — carga de variables de entorno desde un archivo `.env`.
 
+## Estado
+
+Proyecto en fase inicial. Está lista la estructura de carpetas, la
+documentación base, el entorno virtual y el registro de dependencias. Aún no
+se implementa la lógica de la aplicación; el siguiente paso es la colaboración
+mediante fork y Pull Request.
+
 ## Autor
 
 Justin Emiliano Rodríguez Franco (`justin12f`)
